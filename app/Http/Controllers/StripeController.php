@@ -8,7 +8,6 @@ use App\Models\product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Stripe;
-
 class StripeController extends Controller
 {
     public function stripePost(Request $request)
@@ -54,7 +53,7 @@ class StripeController extends Controller
     }
     private function sendMail($order)
     {
-        $data['order'] = Order::where('id', $order->id)->with('order_items')->get();
+        $data['orders'] = Item::where('order_id', $order->id)->with('order', 'product')->get();
         Mail::send('mail.order', $data, function ($message) {
             $message->to(auth()->user()->email)->subject("Order Placed Successfully!");
         });

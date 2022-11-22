@@ -15,13 +15,8 @@ class HomeController extends Controller
 //        $email =Mail::send('mail.order', $data, function ($message) {
 //           $message->to('ashrafusman768@gmail.com')->subject("Order Placed Successfully!");
 //        });
-        $orders = Order::all();
-        foreach ($orders as $order) {
-            if($order->order_items) {
-                dd($order->order_items);
 
-            }
-        }
+
         if($request->input('search')) {
             $search = $request->input('search');
             $data['products'] = Product::with('category')

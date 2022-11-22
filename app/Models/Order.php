@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Item;
+use App\Models\Product;
 class Order extends Model
 {
     use HasFactory;
@@ -15,6 +16,6 @@ class Order extends Model
     ];
 
     public function order_items() {
-        $this->hasMany(Item::class, 'order_id');
+       return $this->hasMany(Item::class, 'order_id');
     }
 }
