@@ -25,6 +25,17 @@
                             <td>$ {{ $order->total_price }}</td>
                             <td> {{ $order->status }}</td>
                         </tr>
+                        {{-- <tr>
+                            <td>{{ $order->order->ref_id }}</td>
+                            <td><img class="rounded" src="{{asset('storage') . '/' . $order->product->image}}"
+                                     width="100px">
+                            </td>
+                            <td>{{ $order->product->name }}</td>
+                            <td>{{ $order->quantity }}</td>
+                            <td>$ {{ $order->discount }}</td>
+                            <td>$ {{ $order->total_price }}</td>
+                            <td> {{ $order->status }}</td>
+                        </tr> --}}
                     @endforeach
                     </tbody>
                 </table>
